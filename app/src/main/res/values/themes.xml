@@ -1,0 +1,13 @@
+<resources>
+    <!-- Base application theme. -->
+    <style name="Base.Theme.MyCart" parent="Theme.Material3.Light">
+        <item name="colorPrimary">@color/blue500</item>
+        <item name="colorSecondary">@color/green500</item>
+        <!-- Customize your light theme here. -->
+        <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
+    </style>
+
+    <style name="Theme.MyCart" parent="Base.Theme.MyCart">
+        <item name="titleTextColor">@color/blue500</item>
+    </style>
+</resources>

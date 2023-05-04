@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/grey_background"
+    android:scrollbars="vertical">
+
+    <ImageView
+        android:id="@+id/cartLogo"
+        android:layout_width="96dp"
+        android:layout_height="96dp"
+        android:layout_marginTop="8dp"
+        android:contentDescription="@string/cart_logo"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/baseline_shopping_cart_24"
+        tools:ignore="ImageContrastCheck" />
+
+    <TextView
+        android:id="@+id/quantityColumn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/quantity"
+        app:layout_constraintBottom_toBottomOf="@+id/SumPriceColumn"
+        app:layout_constraintEnd_toStartOf="@+id/SumPriceColumn"
+        app:layout_constraintTop_toTopOf="@+id/SumPriceColumn" />
+
+    <TextView
+        android:id="@+id/SumPriceColumn"
+        android:layout_width="88dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:text="@string/sum_price"
+        android:textAlignment="center"
+        app:layout_constraintEnd_toEndOf="@+id/rvCart"
+        app:layout_constraintTop_toBottomOf="@id/myCartText"
+        tools:ignore="TextSizeCheck" />
+
+    <TextView
+        android:id="@+id/myCartText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:text="@string/my_cart"
+        android:textAlignment="center"
+        android:textSize="24sp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/cartLogo" />
+
+    <View
+        android:id="@+id/cartDivider"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginTop="4dp"
+        android:background="?android:attr/listDivider"
+        app:layout_constraintTop_toBottomOf="@id/SumPriceColumn" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvCart"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:clipToPadding="false"
+        android:paddingBottom="8dp"
+        app:layout_constraintBottom_toTopOf="@id/bottomBar"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/cartDivider" />
+
+    <FrameLayout
+        android:id="@+id/bottomBar"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:showIn="@layout/cart_activity">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/total"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="32dp"
+                android:text="@string/total"
+                android:textSize="24sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/totalPrice"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginEnd="8dp"
+                android:text="@string/_0"
+                android:textAlignment="center"
+                android:textColor="@color/red500"
+                android:textSize="24sp"
+                app:layout_constraintBottom_toBottomOf="@id/total"
+                app:layout_constraintLeft_toRightOf="@+id/total"
+                app:layout_constraintRight_toLeftOf="@id/checkout"
+                app:layout_constraintTop_toTopOf="@id/total" />
+
+            <ImageButton
+                android:id="@+id/checkout"
+                android:layout_width="64dp"
+                android:layout_height="64dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="32dp"
+                android:background="?android:selectableItemBackground"
+                android:contentDescription="@string/checkout"
+                android:onClick="checkout"
+                android:src="@drawable/baseline_payment_24"
+                app:layout_constraintBottom_toTopOf="@id/checkoutText"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:ignore="ImageContrastCheck,DuplicateSpeakableTextCheck" />
+
+            <TextView
+                android:id="@+id/checkoutText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:text="@string/checkout"
+                android:textAlignment="center"
+                android:textColor="@color/blue500"
+                android:textSize="16sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toLeftOf="@id/checkout"
+                app:layout_constraintRight_toRightOf="@id/checkout"
+                app:layout_constraintTop_toBottomOf="@id/checkout"
+                tools:ignore="VisualLintBounds,TextContrastCheck" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </FrameLayout>
+
+    <View
+        android:id="@+id/cartDivider2"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="?android:attr/listDivider"
+        app:layout_constraintTop_toBottomOf="@+id/rvCart" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
